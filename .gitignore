@@ -2,3 +2,4 @@
 /build/
 /.idea/
 phpunit.xml
+composer.lock

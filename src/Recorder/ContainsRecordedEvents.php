@@ -13,8 +13,6 @@ interface ContainsRecordedEvents
 
     /**
      * Erase recorded events
-     *
-     * @return self
      */
     public function eraseEvents();
 }
