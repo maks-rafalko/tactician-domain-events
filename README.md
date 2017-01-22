@@ -14,7 +14,7 @@ Installation
 Install via composer
 
 ```
-composer require tactician-domain-events
+composer require bornfreee/tactician-domain-events
 ```
 
 Usage
