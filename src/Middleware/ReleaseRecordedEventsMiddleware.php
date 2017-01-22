@@ -6,7 +6,7 @@ use BornFree\TacticianDomainEvent\EventBus;
 use BornFree\TacticianDomainEvent\Recorder\ContainsRecordedEvents;
 use League\Tactician\Middleware;
 
-class ReleaseRecorderEventsMiddleware implements Middleware
+class ReleaseRecordedEventsMiddleware implements Middleware
 {
     /**
      * @var ContainsRecordedEvents
