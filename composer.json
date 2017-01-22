@@ -1,5 +1,5 @@
 {
-    "name": "tactician-domain-events",
+    "name": "bornfreee/tactician-domain-events",
     "description": "A Plugin for Tactician command bus library to work with the recorded Domain Events",
     "license": "MIT",
     "authors": [
