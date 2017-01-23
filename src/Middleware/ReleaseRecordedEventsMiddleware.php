@@ -2,7 +2,7 @@
 
 namespace BornFree\TacticianDomainEvent\Middleware;
 
-use BornFree\TacticianDomainEvent\EventBus;
+use BornFree\TacticianDomainEvent\EventDispatcher\EventDispatcherInterface;
 use BornFree\TacticianDomainEvent\Recorder\ContainsRecordedEvents;
 use League\Tactician\Middleware;
 
@@ -14,20 +14,20 @@ class ReleaseRecordedEventsMiddleware implements Middleware
     private $eventRecorder;
 
     /**
-     * @var EventBus
+     * @var EventDispatcherInterface
      */
-    private $eventBus;
+    private $eventDispatcher;
 
     /**
      * ReleaseRecorderEventsMiddleware constructor.
      *
      * @param ContainsRecordedEvents $eventRecorder
-     * @param EventBus $eventBus
+     * @param EventDispatcherInterface $eventDispatcher
      */
-    public function __construct(ContainsRecordedEvents $eventRecorder, EventBus $eventBus)
+    public function __construct(ContainsRecordedEvents $eventRecorder, EventDispatcherInterface $eventDispatcher)
     {
         $this->eventRecorder = $eventRecorder;
-        $this->eventBus = $eventBus;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -53,7 +53,7 @@ class ReleaseRecordedEventsMiddleware implements Middleware
         $recordedEvents = $this->eventRecorder->releaseEvents();
 
         foreach ($recordedEvents as $event) {
-            $this->eventBus->dispatch($event);
+            $this->eventDispatcher->dispatch($event);
         }
     }
 }

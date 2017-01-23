@@ -1,8 +1,8 @@
 <?php
 
-namespace BornFree\TacticianDomainEvent;
+namespace BornFree\TacticianDomainEvent\EventDispatcher;
 
-interface EventBus
+interface EventDispatcherInterface
 {
     /**
      * Dispatches an event
