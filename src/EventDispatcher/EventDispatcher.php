@@ -6,7 +6,7 @@ namespace BornFree\TacticianDomainEvent\EventDispatcher;
 class EventDispatcher implements EventDispatcherInterface
 {
     /**
-     * @var EventListenerInterface[][]
+     * @var callable[][]
      */
     private $listeners = [];
 
@@ -18,22 +18,22 @@ class EventDispatcher implements EventDispatcherInterface
         $name = $event instanceof NamedEvent ? $event->getName() : get_class($event);
 
         foreach ($this->getListeners($name) as $listener) {
-            $listener->handle($event);
+            $listener($event);
         }
     }
 
     /**
      * @param string $eventName
-     * @param EventListenerInterface $listener
+     * @param callable $listener
      */
-    public function addListener($eventName, EventListenerInterface $listener)
+    public function addListener($eventName, callable $listener)
     {
         $this->listeners[$eventName][] = $listener;
     }
 
     /**
      * @param string $eventName
-     * @return EventListenerInterface[]
+     * @return callable[]
      */
     public function getListeners($eventName)
     {
