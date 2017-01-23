@@ -2,8 +2,7 @@
 
 namespace BornFree\TacticianDomainEvent\EventDispatcher;
 
-
-class EventDispatcher implements EventDispatcherInterface
+class EventDispatcher implements EventDispatcherInterface, ContainsListenersInterface
 {
     /**
      * @var callable[][]
@@ -23,8 +22,7 @@ class EventDispatcher implements EventDispatcherInterface
     }
 
     /**
-     * @param string $eventName
-     * @param callable $listener
+     * @inheritdoc
      */
     public function addListener($eventName, callable $listener)
     {
@@ -32,8 +30,7 @@ class EventDispatcher implements EventDispatcherInterface
     }
 
     /**
-     * @param string $eventName
-     * @return callable[]
+     * @inheritdoc
      */
     public function getListeners($eventName)
     {
@@ -45,8 +42,7 @@ class EventDispatcher implements EventDispatcherInterface
     }
 
     /**
-     * @param string $eventName
-     * @return bool
+     * @inheritdoc
      */
     public function hasListeners($eventName)
     {
