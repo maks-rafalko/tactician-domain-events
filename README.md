@@ -3,7 +3,6 @@ Tactician Domain Events
 
 [![Build Status](https://travis-ci.org/borNfreee/tactician-domain-events.svg?branch=master)](https://travis-ci.org/bornfreee/tactician-domain-events)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bornfreee/tactician-domain-events/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/tactician-domain-events/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/bornfreee/tactician-domain-events/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/tactician-domain-events/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/bornfreee/tactician-domain-events/v/stable)](https://packagist.org/packages/bornfreee/tactician-domain-events)
 
 A Plugin for Tactician command bus library to work with the recorded Domain Events

@@ -12,3 +12,7 @@ tools:
   php_hhvm: true
   php_analyzer: true
   php_pdepend: true
+
+php:
+  code_rating: true
+  duplication: true
