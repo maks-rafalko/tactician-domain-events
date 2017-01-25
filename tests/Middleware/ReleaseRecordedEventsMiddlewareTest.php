@@ -57,7 +57,8 @@ class ReleaseRecordedEventsMiddlewareTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue([$event]));
 
         $this->eventDispatcherMock->expects($this->once())
-            ->method('dispatch');
+            ->method('dispatch')
+            ->with($this->identicalTo($event));
 
         $this->middleware->execute($command, $this->nextMiddlewareMock);
     }
