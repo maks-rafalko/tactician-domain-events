@@ -39,7 +39,7 @@ trait EventRecorderCapabilities
      *
      * @param mixed $event
      */
-    protected function record($event)
+    public function record($event)
     {
         $this->recordedEvents[] = $event;
     }
