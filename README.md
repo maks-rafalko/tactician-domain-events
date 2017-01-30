@@ -13,12 +13,14 @@ Installation
 
 Install via composer
 
-```
+```bash
 composer require bornfreee/tactician-domain-events
 ```
 
 Usage
 -----
+
+See the full documentation https://bornfreee.github.io/tactician-domain-events/
 
 License
 -------
