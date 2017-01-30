@@ -1,5 +1,6 @@
 /vendor/
 /build/
+/.couscous/
 /.idea/
 phpunit.xml
 composer.lock
