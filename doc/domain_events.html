@@ -86,7 +86,7 @@ $recordedEvents = $eventRecorder-&gt;releaseEvents();</code></pre>
  {
      public function dispatch($event);
  }</code></pre>
-<p>This lib contains the very basic implementation of <code>EventDispatcher</code>, but you can implement your own, see <strong>Event Dispatcher</strong> section below</p>
+<p>This lib contains the very basic implementation of <code>EventDispatcher</code>, but you can implement your own, see <a href="#event-dispatcher">Event Dispatcher</a> section below</p>
 <h3 id="record-events-in-entity">Record events in Entity</h3>
 <p>When you use domain events, your domain entities will generate events while you change or create them. You record those events inside the entity and when the changes have been persisted and the database transaction has succeeded, you should collect the recorded events and handle them:</p>
 <pre><code class="language-php">$task = new Task('Finish review'); // records `TaskWasCreated` domain event
@@ -126,7 +126,7 @@ foreach ($recordedEvents as $event) {
 <p>Now it's time to add listeners and react to dispatched events.</p>
 <h3 id="add-event-listeners">Add Event Listeners</h3>
 <p>The built in <code>EventDispatcher</code> accepts any <code>callable</code> as a listener. It means you can use regular methods, static methods, callable object with <code>__invoke()</code> function and even closures.</p>
-<p>Let's write an event listener that sends an email when the task is created:</p>
+<p>Let's write an event listener that sends notification when the task is created:</p>
 <pre><code class="language-php">namespace BornFree\TacticianDomainEvent\EventDispatcher;
 
 class SendPushNotificationListener
