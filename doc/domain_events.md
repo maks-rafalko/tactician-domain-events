@@ -37,7 +37,7 @@ $recordedEvents = $eventRecorder->releaseEvents();
  }
  ```
  
- This lib contains the very basic implementation of `EventDispatcher`, but you can implement your own, see **Event Dispatcher** section below
+ This lib contains the very basic implementation of `EventDispatcher`, but you can implement your own, see [Event Dispatcher](#event-dispatcher) section below
 
 ### Record events in Entity
 
@@ -95,7 +95,7 @@ Now it's time to add listeners and react to dispatched events.
 
 The built in `EventDispatcher` accepts any `callable` as a listener. It means you can use regular methods, static methods, callable object with `__invoke()` function and even closures.
 
-Let's write an event listener that sends an email when the task is created:
+Let's write an event listener that sends notification when the task is created:
 
 ```php
 namespace BornFree\TacticianDomainEvent\EventDispatcher;
