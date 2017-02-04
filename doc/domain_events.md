@@ -2,12 +2,9 @@
 currentMenu: domain_events
 ---
 
-// TODO add table of contents 
-
-
 There are two possible ways to record Domain Events:
 
-* Using the public service, `Recorder`
+* Using the public service, `EventRecorder`
 * Using the Entity
 
 ### Public Recorder
@@ -61,16 +58,18 @@ foreach ($events as $event) {
 This is possible thanks to implementing `RecordsEvents` interface that has a `record()` method. You can use a built in `EventRecorderCapabilities` trait:
 
 ```php
-class Task implements RecordsEvents
+use BornFree\TacticianDomainEvent\Recorder\ContainsRecordedEvents;
+use BornFree\TacticianDomainEvent\Recorder\EventRecorderCapabilities;
+
+class Task implements ContainsRecordedMessages
 {
     use EventRecorderCapabilities;
-    
+
     public function __construct($name)
     {
         $this->record(new TaskWasCreated($name));
     }
 }
-
 ```
 
 ## Event Dispatcher
