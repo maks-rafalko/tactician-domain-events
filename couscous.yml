@@ -23,4 +23,4 @@ menu:
             absoluteUrl: https://bornfreee.github.io/tactician-doctrine-domain-events
         symfony_integration:
             text: Symfony Integration
-            relativeUrl: doc/symfony_integration.html
+            absoluteUrl: https://bornfreee.github.io/tactician-domain-events-bundle/
