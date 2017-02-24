@@ -22,4 +22,9 @@ interface ContainsListenersInterface
      * @return bool
      */
     public function hasListeners($eventName);
+
+    /**
+     * @param EventSubscriberInterface $eventSubscriber
+     */
+    public function addSubscriber(EventSubscriberInterface $eventSubscriber);
 }

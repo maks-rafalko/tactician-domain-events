@@ -48,4 +48,14 @@ class EventDispatcher implements EventDispatcherInterface, ContainsListenersInte
     {
         return isset($this->listeners[$eventName]);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function addSubscriber(EventSubscriberInterface $eventSubscriber)
+    {
+        foreach ($eventSubscriber->getSubscribedEvents() as $eventName => $listener) {
+            $this->addListener($eventName, $listener);
+        }
+    }
 }

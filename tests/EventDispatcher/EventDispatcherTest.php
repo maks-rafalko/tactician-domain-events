@@ -3,6 +3,7 @@
 namespace BornFree\TacticianDomainEvent\EventDispatcher;
 
 use BornFree\TacticianDomainEvent\Tests\Fixtures\NamedEventWasRaised;
+use BornFree\TacticianDomainEvent\Tests\Fixtures\UserEventSubscriber;
 use BornFree\TacticianDomainEvent\Tests\Fixtures\UserWasCreated;
 
 class EventDispatcherTest extends \PHPUnit_Framework_TestCase
@@ -85,5 +86,15 @@ class EventDispatcherTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue([]));
 
         $eventDispatcher->dispatch(new NamedEventWasRaised());
+    }
+
+    /**
+     * @test
+     */
+    public function it_adds_event_listeners_from_subscriber()
+    {
+        $this->eventDispatcher->addSubscriber(new UserEventSubscriber());
+
+        $this->assertTrue($this->eventDispatcher->hasListeners($this->eventName));
     }
 }
