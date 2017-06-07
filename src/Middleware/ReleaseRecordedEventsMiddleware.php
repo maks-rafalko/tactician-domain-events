@@ -36,14 +36,14 @@ class ReleaseRecordedEventsMiddleware implements Middleware
      * @param object $command
      * @param callable $next
      *
-     * @return void
+     * @return mixed
      *
      * @throws \Exception
      */
     public function execute($command, callable $next)
     {
         try {
-            $next($command);
+            $result = $next($command);
         } catch (\Exception $exception) {
             $this->eventRecorder->eraseEvents();
 
@@ -55,5 +55,7 @@ class ReleaseRecordedEventsMiddleware implements Middleware
         foreach ($recordedEvents as $event) {
             $this->eventDispatcher->dispatch($event);
         }
+
+        return $result;
     }
 }
