@@ -77,7 +77,7 @@ class Task implements ContainsRecordedMessages
 Using the built in `EventDispatcher`, we can handle all recorded events:
 
 ```php
-namespace BornFree\TacticianDomainEvent\EventDispatcher;
+use BornFree\TacticianDomainEvent\EventDispatcher;
 ...
 $recordedEvents = $eventRecorder->releaseEvents();
 
@@ -97,8 +97,6 @@ The built in `EventDispatcher` accepts any `callable` as a listener. It means yo
 Let's write an event listener that sends notification when the task is created:
 
 ```php
-namespace BornFree\TacticianDomainEvent\EventDispatcher;
-
 class SendPushNotificationListener
 {
     public function __construct(PushNotificationSender $sender) {...}
@@ -135,7 +133,7 @@ Events are recorded while a command is handled. We only want to handle the event
 ```php
 use League\Tactician\CommandBus;
 use League\Tactician\Doctrine\ORM\TransactionMiddleware;
-use namespace BornFree\TacticianDomainEvent\Middleware\ReleaseRecordedEventsMiddleware;
+use BornFree\TacticianDomainEvent\Middleware\ReleaseRecordedEventsMiddleware;
 
 // see the previous sections about $eventRecorder and $eventDispatcher
 $releaseRecordedEventsMiddleware = new ReleaseRecordedEventsMiddleware($eventRecorder, $eventDispatcher);
