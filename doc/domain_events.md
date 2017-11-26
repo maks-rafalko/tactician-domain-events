@@ -124,6 +124,51 @@ $eventDispatcher->addListener(
 
 ```
 
+### Add Event Subscribers
+
+It's also possible to add event subscribers: classes that handles multiple events. Your subscriber have to implement the interface:
+
+```php
+interface EventSubscriberInterface
+{
+    /**
+     * @return array
+     */
+    public function getSubscribedEvents();
+}
+```
+
+Method `getSubscribedEvents` should return an array, where keys are events and values are callables:
+
+```php
+class MailerListener implements EventSubscriberInterface
+{
+    public function getSubscribedEvents()
+    {
+        return [
+            UserWasCreated => [$this, 'sendActivationLink'],
+            UserWasDeactivated => [$this, 'sendDeactivationInfo'],
+        ];
+    }
+
+    public function sendActivationLink()
+    {
+        // ...
+    }
+
+    public function sendDeactivationInfo()
+    {
+        // ...
+    }
+}
+```
+
+And adding it to dispatcher:
+
+```php
+$eventDispatcher->addSubscriber(new MailerListener());
+```
+
 ## Handling events with Tactician command bus
 
 ### Handling recorded events from public recorder
