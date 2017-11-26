@@ -149,6 +149,38 @@ $eventDispatcher-&gt;addListener(TaskWasCreated::class, $listener);</code></pre>
     }
 );
 </code></pre>
+<h3 id="add-event-subscribers">Add Event Subscribers</h3>
+<p>It's also possible to add event subscribers: classes that handles multiple events. Your subscriber have to implement the interface:</p>
+<pre><code class="language-php">interface EventSubscriberInterface
+{
+    /**
+     * @return array
+     */
+    public function getSubscribedEvents();
+}</code></pre>
+<p>Method <code>getSubscribedEvents</code> should return an array, where keys are events and values are callables:</p>
+<pre><code class="language-php">class MailerListener implements EventSubscriberInterface
+{
+    public function getSubscribedEvents()
+    {
+        return [
+            UserWasCreated =&gt; [$this, 'sendActivationLink'],
+            UserWasDeactivated =&gt; [$this, 'sendDeactivationInfo'],
+        ];
+    }
+
+    public function sendActivationLink()
+    {
+        // ...
+    }
+
+    public function sendDeactivationInfo()
+    {
+        // ...
+    }
+}</code></pre>
+<p>And adding it to dispatcher:</p>
+<pre><code class="language-php">$eventDispatcher-&gt;addSubscriber(new MailerListener());</code></pre>
 <h2 id="handling-events-with-tactician-command-bus">Handling events with Tactician command bus</h2>
 <h3 id="handling-recorded-events-from-public-recorder">Handling recorded events from public recorder</h3>
 <p>Events are recorded while a command is handled. We only want to handle the events themselves <strong>after</strong> the command has completely and successfully been handled. The best option to accomplish this is to add a middleware to the command bus. This middleware needs the event recorder to find out which events were recorded during the handling of commands, and it needs the event dispatcher to actually dispatch the recorded events:</p>
