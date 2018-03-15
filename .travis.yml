@@ -7,6 +7,10 @@ php:
   - 7.0
   - 7.1
 
+env:
+  global:
+    secure: bGd40PY7bPcp537XldsewcaOhMS79cLPSSFkmADF3T1Dvpc/yCYtTwnIguyJRt8rLPav6acLvP51d5yF6Ss/dB/fU7hnmw3oEFUlcBeITuVRJQV84DkYFBFdAZb3Lpd2Pok7Ty8IRa4/suToq1cvfSF83hcUEBScVTROTpgTC1aKiFRtaTSDKeQytxaDpf29AZ5WaUiVgLWdi/dymTlU5eLkgT1vPtatYQ+y1JbsJNpMcZhihh/qOyCd9JWOrSx26/oaPYHR6gYRoN4Ios9UyiXg4fBk+qxWpsIupl+I16evdo4Ad2gT8dUvx4E3p1FN3BLRdv+SPGCzZAJoRYubeK3Bl4YhRST8gBnOAnG7wWn5jaVx8uinmwD488M4tIHwSme6qK5X9HhC5nMoSQlopeFpC+tx7TG/FY1seYTbWmFH24wMjqtyZXxJYffojfdj5NG1o6hRZbgoULLHetsIa1Hi+dXuRwTt8sy6NdFqotXbSXqtO+2WxF7ve4WWlkgtEdeC1U2GzMw20z+GMxsA2e2O+IbNG/VECHh6wEsaiV+U1COPt945mFfwKW5dwQgk2cTtbyir71Y91G59RNlJ3AGVWPdcY1xLk9Wrg+GL3+L2wg/+KwCK9e+z1MdSAIy+mpFFbJkCojwva9p7TLNzTZlIsXPd5HjbOGF3qozH+AA=
+
 cache:
   directories:
   - $HOME/.composer/cache
@@ -19,9 +23,13 @@ install:
 
 before_script:
   - mkdir -p build/logs
+  - wget https://github.com/infection/infection/releases/download/0.8.1/infection.phar
+  - wget https://github.com/infection/infection/releases/download/0.8.1/infection.phar.pubkey
+  - chmod +x infection.phar
 
 script:
   - vendor/bin/phpunit --coverage-clover=clover.xml
+  - ./infection.phar --threads=4 --min-msi=100
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

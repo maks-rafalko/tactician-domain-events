@@ -4,3 +4,4 @@
 /.idea/
 phpunit.xml
 composer.lock
+infection-log.txt
