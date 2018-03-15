@@ -29,7 +29,7 @@ before_script:
 
 script:
   - vendor/bin/phpunit --coverage-clover=clover.xml
-  - ./infection.phar --threads=4 --min-msi=100
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.6" ]]; then ./infection.phar --threads=4 --min-msi=100
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
