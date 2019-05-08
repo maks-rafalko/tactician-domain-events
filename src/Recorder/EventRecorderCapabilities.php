@@ -21,8 +21,6 @@ trait EventRecorderCapabilities
     {
         $events = $this->recordedEvents;
 
-        $this->eraseEvents();
-
         return $events;
     }
 
