@@ -204,7 +204,7 @@ $commandBus = new CommandBus(
 <p>When you privately record events inside your domain entities, you need to collect those recorded events manually. Your database abstraction library, ORM or ODM probably offers a way to hook into the process of persisting the entities and collecting them somehow. After the command has been handled successfully and the transaction has been committed, you can iterate over those entities and collect their recorded events.</p>
 <blockquote>
 <h4 id="handling-domain-events-with-doctrine-orm">Handling domain events with Doctrine ORM</h4>
-<p>This library comes with a <a href="https://bornfreee.github.io/tactician-doctrine-domain-events">Doctrine ORM bridge</a>. Using this package you can collect recorded events from Doctrine ORM entities <em>automatically</em> using built in Doctrine Event Subscriber</p>
+<p>This library comes with a <a href="https://maks-rafalko.github.io/tactician-doctrine-domain-events">Doctrine ORM bridge</a>. Using this package you can collect recorded events from Doctrine ORM entities <em>automatically</em> using built in Doctrine Event Subscriber</p>
 </blockquote>
                 </section>
 
