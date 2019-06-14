@@ -2,10 +2,10 @@ title: Tactician Domain Events
 
 subTitle: A Plugin for Tactician command bus library to work with the recorded Domain Events
 
-baseUrl: https://bornfreee.github.io/tactician-domain-events
+baseUrl: https://maks-rafalko.github.io/tactician-domain-events
 
 github:
-    user: borNfreee
+    user: maks-rafalko
     repo: tactician-domain-events
 
 menu:
@@ -20,7 +20,7 @@ menu:
             relativeUrl: doc/domain_events.html
         doctrine_integration:
             text: Doctrine Integration
-            absoluteUrl: https://bornfreee.github.io/tactician-doctrine-domain-events
+            absoluteUrl: https://maks-rafalko.github.io/tactician-doctrine-domain-events
         symfony_integration:
             text: Symfony Integration
-            absoluteUrl: https://bornfreee.github.io/tactician-domain-events-bundle/
+            absoluteUrl: https://maks-rafalko.github.io/tactician-domain-events-bundle/

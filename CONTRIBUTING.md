@@ -1,6 +1,6 @@
 __Issues__
 
-If you have a question, something is not working or you want to make a suggestion, feel free to open a [new issue](https://github.com/borNfreee/tactician-domain-events/issues).
+If you have a question, something is not working or you want to make a suggestion, feel free to open a [new issue](https://github.com/maks-rafalko/tactician-domain-events/issues).
 
 Checkout existing issues before opening a new one.
 
