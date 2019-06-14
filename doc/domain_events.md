@@ -201,4 +201,4 @@ When you privately record events inside your domain entities, you need to collec
 
 > #### Handling domain events with Doctrine ORM
 > 
-> This library comes with a [Doctrine ORM bridge](https://bornfreee.github.io/tactician-doctrine-domain-events). Using this package you can collect recorded events from Doctrine ORM entities *automatically* using built in Doctrine Event Subscriber
+> This library comes with a [Doctrine ORM bridge](https://maks-rafalko.github.io/tactician-doctrine-domain-events). Using this package you can collect recorded events from Doctrine ORM entities *automatically* using built in Doctrine Event Subscriber
