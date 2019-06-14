@@ -21,7 +21,7 @@ composer require bornfreee/tactician-domain-events
 Usage
 -----
 
-See the full documentation https://bornfreee.github.io/tactician-domain-events/
+See the full documentation https://maks-rafalko.github.io/tactician-domain-events/
 
 License
 -------
